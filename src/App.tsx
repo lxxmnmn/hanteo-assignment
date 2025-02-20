@@ -4,6 +4,8 @@ import { ErrorBoundary } from 'react-error-boundary';
 
 import { Home } from '~pages/Home';
 
+import './App.scss';
+
 const App = () => {
   const { reset } = useQueryErrorResetBoundary();
 

@@ -1,0 +1,81 @@
+@font-face {
+  font-family: 'Pretendard-Thin';
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+  src: url('/src/assets/font/Pretendard-Thin.subset.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Pretendard-ExtraLight';
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+  src: url('/src/assets/font/Pretendard-ExtraLight.subset.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Pretendard-Light';
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url('/src/assets/font/Pretendard-Light.subset.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('/src/assets/font/Pretendard-Regular.subset.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Pretendard-Medium';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url('/src/assets/font/Pretendard-Medium.subset.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Pretendard-SemiBold';
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url('/src/assets/font/Pretendard-SemiBold.subset.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Pretendard-Bold';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('/src/assets/font/Pretendard-Bold.subset.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Pretendard-ExtraBold';
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  src: url('/src/assets/font/Pretendard-ExtraBold.subset.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Pretendard-Black';
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+  src: url('/src/assets/font/Pretendard-Black.subset.woff') format('woff');
+}
+
+$font-family-100: 'Pretendard-Thin';
+$font-family-200: 'Pretendard-ExtraLight';
+$font-family-300: 'Pretendard-Light';
+$font-family-400: 'Pretendard-Regular';
+$font-family-500: 'Pretendard-Medium';
+$font-family-600: 'Pretendard-SemiBold';
+$font-family-700: 'Pretendard-Bold';
+$font-family-800: 'Pretendard-ExtraBold';
+$font-family-900: 'Pretendard-Black';

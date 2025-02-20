@@ -1,0 +1,7 @@
+@use '/src/styles' as *;
+
+body {
+  color: $color-grayscale-900;
+  background-color: $color-grayscale-000;
+  font-family: $font-family-400;
+}

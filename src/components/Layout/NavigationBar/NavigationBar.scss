@@ -1,0 +1,28 @@
+@use '/src/styles' as *;
+
+.nav-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-width: 425px;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px 25px;
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+  background-color: $color-secondary;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  a {
+    color: $color-grayscale-500;
+    font-family: $font-family-800;
+    font-size: 1.1rem;
+    padding: 10px;
+    transition: color 0.3s;
+
+    &.active {
+      color: $color-grayscale-000;
+    }
+  }
+}

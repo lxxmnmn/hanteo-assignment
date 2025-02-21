@@ -1,0 +1,48 @@
+@use '/src/styles' as *;
+
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 50px;
+}
+
+.carousel-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+
+  .slide {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.carousel-buttons {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+
+  button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background-color: $color-grayscale-200;
+    transition: background-color 0.3s;
+    cursor: pointer;
+
+    &.active {
+      background-color: $color-primary;
+    }
+  }
+}

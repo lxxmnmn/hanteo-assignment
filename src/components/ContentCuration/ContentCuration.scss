@@ -1,0 +1,29 @@
+@use '/src/styles' as *;
+
+.curation {
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+  background-color: $color-grayscale-100;
+
+  &__title {
+    font-family: $font-family-600;
+    margin-bottom: 10px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  &__item {
+    width: 90%;
+    padding: 15px;
+    font-size: 0.9rem;
+    background: $color-grayscale-000;
+    border-radius: 5px;
+  }
+}

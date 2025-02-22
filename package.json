@@ -17,6 +17,8 @@
     "@tanstack/eslint-plugin-query": "^5.66.1",
     "@tanstack/react-query": "^5.66.7",
     "axios": "^1.7.9",
+    "embla-carousel-autoplay": "^8.5.2",
+    "embla-carousel-react": "^8.5.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-error-boundary": "^5.0.0",

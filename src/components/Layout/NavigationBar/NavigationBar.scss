@@ -1,10 +1,7 @@
 @use '/src/styles' as *;
 
 .nav-bar {
-  position: fixed;
-  top: 0;
   width: 100%;
-  max-width: 425px;
   overflow-x: auto;
   white-space: nowrap;
   padding: 10px 25px;

@@ -1,13 +1,19 @@
+import { Suspense } from 'react';
 import { Carousel } from '~components/Carousel';
-import { ContentCuration } from '~/components/ContentCuration';
+import { ContentCuration } from '~components/ContentCuration';
+import { CarouselSkeleton, ListSkeleton } from '~components/ui/Skeleton';
 
 import './Chart.scss';
 
 const Chart = () => {
   return (
     <main className="chart">
-      <Carousel />
-      <ContentCuration />
+      <Suspense fallback={<CarouselSkeleton />}>
+        <Carousel />
+      </Suspense>
+      <Suspense fallback={<ListSkeleton />}>
+        <ContentCuration />
+      </Suspense>
     </main>
   );
 };

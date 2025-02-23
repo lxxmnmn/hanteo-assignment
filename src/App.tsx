@@ -14,7 +14,7 @@ const App = () => {
     <ErrorBoundary onReset={reset} fallbackRender={() => <></>}>
       <BrowserRouter>
         <Routes>
-          <Route element={<Layout />}>
+          <Route path="/" element={<Layout />}>
             <Route index path="/chart" element={<Chart />} />
           </Route>
         </Routes>

@@ -3,6 +3,8 @@ import { ENDPOINTS } from '~api/endpoints';
 import { BannerType } from '~/types';
 
 export const fetchMainBanners = async (): Promise<BannerType[]> => {
-  const response = await axiosInstance.get<BannerType[]>(ENDPOINTS.getMainBanners);
+  const response = await axiosInstance.get<BannerType[]>(
+    import.meta.env.VITE_DEV_URL + ENDPOINTS.getMainBanners
+  );
   return response.data;
 };

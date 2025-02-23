@@ -1,8 +1,6 @@
-import axios, { AxiosError } from 'axios';
-import { BASE_URL } from './endpoints';
+import axios, { AxiosInstance, AxiosError } from 'axios';
 
-export const axiosInstance = axios.create({
-  baseURL: BASE_URL,
+export const axiosInstance: AxiosInstance = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },

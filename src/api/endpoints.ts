@@ -1,5 +1,4 @@
-export const BASE_URL = '/data';
-
 export const ENDPOINTS = {
-  getMainBanners: '/banners.json',
+  getMainBanners: '/data/banners.json',
+  getYoutubeContents: '/youtube/v3/search',
 } as const;

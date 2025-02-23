@@ -6,7 +6,10 @@ import './Footer.scss';
 const Footer = () => {
   return (
     <footer className="footer">
-      <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+      <button
+        className="footer__button"
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      >
         <FontAwesomeIcon icon={faArrowUp} />
       </button>
     </footer>

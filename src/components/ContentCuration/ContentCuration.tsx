@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, Fragment } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useYoutubeContents } from '~/hooks';
 
@@ -20,8 +20,8 @@ const ContentCuration = () => {
     <section className="curation">
       <h3 className="curation__title">한터차트 유튜브 랭킹</h3>
       <ol className="curation__list">
-        {data?.pages.flat().map((page) => (
-          <>
+        {data?.pages.flat().map((page, index) => (
+          <Fragment key={index}>
             {page.items.map((content) => (
               <li
                 key={content.etag}
@@ -35,10 +35,10 @@ const ContentCuration = () => {
                 <p className="content-title">{content.snippet.title}</p>
               </li>
             ))}
-          </>
+          </Fragment>
         ))}
+        <li ref={ref}></li>
       </ol>
-      <div ref={ref} />
     </section>
   );
 };

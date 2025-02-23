@@ -1,14 +1,10 @@
-import { useRef, Suspense } from 'react';
+import { useRef } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { useCarouselControl, useMainBanners } from '~/hooks';
 
 import { CarouselSlide } from './CarouselSlide';
 import './Carousel.scss';
-
-const CarouselSkeleton = () => {
-  return <div className="carousel__slide skeleton" />;
-};
 
 const Carousel = () => {
   const autoplay = useRef(Autoplay({ delay: 5000, stopOnInteraction: false }));
@@ -28,11 +24,9 @@ const Carousel = () => {
     <section className="carousel">
       <div className="carousel__viewport" ref={emblaRef}>
         <div className="carousel__container">
-          <Suspense fallback={<CarouselSkeleton />}>
-            {data.map((slide) => (
-              <CarouselSlide key={slide.id} {...slide} />
-            ))}
-          </Suspense>
+          {data.map((slide) => (
+            <CarouselSlide key={slide.id} {...slide} />
+          ))}
         </div>
       </div>
       <div className="carousel__controls">

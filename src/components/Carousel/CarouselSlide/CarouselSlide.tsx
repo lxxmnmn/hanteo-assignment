@@ -27,7 +27,9 @@ const CarouselSlide = (props: BannerType) => {
   return (
     <div className="carousel__slide">
       <div className="status">{slide.status}</div>
-      <img src={slide.image} alt={slide.title} onClick={() => openUrl(slide.url)} />
+      <div className="image">
+        <img src={slide.image} alt={slide.title} onClick={() => openUrl(slide.url)} />
+      </div>
       <div className="caption">
         <div className="caption__header">
           <h5 className="caption__title" title={slide.title}>

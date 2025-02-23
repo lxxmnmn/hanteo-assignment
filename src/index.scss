@@ -99,6 +99,9 @@ video {
   color: inherit;
   vertical-align: baseline;
 }
+html {
+  font-size: 14px;
+}
 article,
 aside,
 details,
@@ -113,12 +116,15 @@ section {
   display: block;
 }
 body,
+div,
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p,
+span {
   line-height: 1;
 }
 ol,

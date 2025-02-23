@@ -1,17 +1,23 @@
-import { useState, useRef, useCallback } from 'react';
+import { useRef, useMemo } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
+import {
+  useCarouselControl,
+  getEventStatus,
+  formatLocalizedDate,
+  getTimeZone,
+} from './Carousel.util';
 
 import './Carousel.scss';
 
 const data = [
   {
     id: 'slide-1',
-    title: '2024 한터 뮤직 어워즈 투표',
+    title: '[M COUNTDOWN] 10월 2주차 엠카 사전 투표',
     button: '투표하기',
-    startDate: '2024-12-01T10:00:00',
-    endDate: '2024-12-31T17:00:00',
-    image: 'https://img.etnews.com/news/article/2024/11/27/cms_temp_article_27102225315309.jpg',
+    startDate: '2025-02-08T10:00:00',
+    endDate: '2025-04-08T17:00:00',
+    image: 'https://pbs.twimg.com/media/EiLB35lU0AAcIPZ.png',
     url: 'https://www.hanteochart.com',
   },
   {
@@ -25,11 +31,11 @@ const data = [
   },
   {
     id: 'slide-3',
-    title: '[M COUNTDOWN] 10월 2주차 엠카 사전 투표',
+    title: '2024 한터 뮤직 어워즈 투표',
     button: '투표하기',
-    startDate: '2025-02-08T10:00:00',
-    endDate: '2025-04-08T17:00:00',
-    image: 'https://pbs.twimg.com/media/EiLB35lU0AAcIPZ.png',
+    startDate: '2024-12-01T10:00:00',
+    endDate: '2024-12-31T17:00:00',
+    image: 'https://img.etnews.com/news/article/2024/11/27/cms_temp_article_27102225315309.jpg',
     url: 'https://www.hanteochart.com',
   },
   {
@@ -53,64 +59,69 @@ const data = [
 ];
 
 const Carousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(2);
   const autoplay = useRef(Autoplay({ delay: 5000, stopOnInteraction: false }));
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
       align: 'center',
       slidesToScroll: 'auto',
-      startIndex: currentIndex,
     },
     [autoplay.current]
   );
 
-  const scrollTo = useCallback(
-    (index: number) => {
-      if (!emblaApi) return;
+  const { selectedIndex, scrollSnaps, onDotButtonClick } = useCarouselControl(emblaApi);
 
-      emblaApi.scrollTo(index, false);
-      setCurrentIndex(index);
-      autoplay.current.reset();
-      console.log(emblaApi.selectedScrollSnap());
-    },
-    [emblaApi]
+  const formattedData = useMemo(
+    () =>
+      data.map((item) => ({
+        ...item,
+        status: getEventStatus(item.startDate, item.endDate),
+        formattedStartDate: formatLocalizedDate(item.startDate),
+        formattedEndDate: formatLocalizedDate(item.endDate),
+      })),
+    [data]
   );
+  const timeZone = useMemo(() => getTimeZone(), []);
+
+  const openUrl = (url: string) => window.open(url);
 
   return (
     <section className="carousel">
-      <div className="embla" ref={emblaRef}>
-        <div className="embla__container">
-          {data.map((slide) => (
-            <div className="embla__slide" key={slide.id}>
-              <img src={slide.image} alt={slide.title} />
+      <div className="carousel__viewport" ref={emblaRef}>
+        <div className="carousel__container">
+          {formattedData.map((slide) => (
+            <div className="carousel__slide" key={slide.id}>
+              <div className="status">{slide.status}</div>
+              <img src={slide.image} alt={slide.title} onClick={() => openUrl(slide.url)} />
               <div className="caption">
                 <div className="caption__header">
-                  <h5
-                    className="caption__title"
-                    title={slide.title}
-                    onClick={() => window.open(`${slide.url}`)}
-                  >
+                  <h5 className="caption__title" title={slide.title}>
                     {slide.title}
                   </h5>
-                  <button type="button" className="caption__button">
+                  <button
+                    type="button"
+                    className="caption__button"
+                    onClick={() => openUrl(slide.url)}
+                  >
                     {slide.button}
                   </button>
                 </div>
                 <span className="caption__date">
-                  {slide.startDate} ~ {slide.endDate}
+                  {slide.formattedStartDate} ~ {slide.formattedEndDate} ({timeZone})
                 </span>
               </div>
             </div>
           ))}
         </div>
       </div>
-      <div className="carousel-buttons">
-        {data.map((_, index) => (
+      <div className="carousel__control">
+        {scrollSnaps.map((_, index) => (
           <button
             key={index}
-            className={currentIndex === index ? 'active' : ''}
-            onClick={() => scrollTo(index)}
+            className={'carousel__dot'.concat(
+              index === selectedIndex ? ' carousel__dot--selected' : ''
+            )}
+            onClick={() => onDotButtonClick(index)}
           />
         ))}
       </div>

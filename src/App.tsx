@@ -4,6 +4,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 
 import { Layout } from '~components/Layout';
 import { Chart } from '~pages/Chart';
+import { NotFound } from '~pages/NotFound';
 
 import './App.scss';
 
@@ -15,8 +16,9 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index path="/chart" element={<Chart />} />
+            <Route index element={<Chart />} />
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </ErrorBoundary>

@@ -3,7 +3,7 @@ import { useLocation, NavLink } from 'react-router-dom';
 import './NavigationBar.scss';
 
 const MENU_LIST = [
-  { name: '차트', path: '/chart' },
+  { name: '차트', path: '/' },
   { name: 'Whook', path: '/whook' },
   { name: '이벤트', path: '/event' },
   { name: '뉴스', path: '/news' },

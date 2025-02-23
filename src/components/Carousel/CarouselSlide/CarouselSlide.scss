@@ -1,0 +1,78 @@
+@use '/src/styles' as *;
+
+.carousel__slide {
+  display: flex;
+  flex: 0 0 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 95%;
+  border-radius: 0.8rem;
+  box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+
+  & > .status {
+    color: $color-grayscale-000;
+    background-color: $color-primary;
+    font-family: $font-family-700;
+    font-size: 0.8rem;
+    padding: 0.3rem 0.4rem;
+    border-radius: 0.4rem;
+    box-shadow: 0 0 0.3rem 0 rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 0.6rem;
+    left: 0.6rem;
+  }
+
+  & > img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    cursor: pointer;
+  }
+}
+
+.caption {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.8rem;
+  padding: 0.8rem;
+  background-color: $color-grayscale-000;
+
+  &__header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__title {
+    font-family: $font-family-700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1rem;
+  }
+
+  &__button {
+    min-width: fit-content;
+    padding: 0.2rem 0.6rem;
+    font-family: $font-family-600;
+    background-color: $color-grayscale-000;
+    color: $color-primary;
+    border: 1px solid $color-primary;
+    border-radius: 0.8rem;
+  }
+
+  &__date {
+    color: $color-grayscale-400;
+    font-size: 0.8rem;
+  }
+}

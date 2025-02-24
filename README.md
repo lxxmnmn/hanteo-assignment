@@ -1,5 +1,7 @@
 # 이민정 한터글로벌 프론트엔드 개발 과제
 
+<img width="425" alt="screenshot" src="https://github.com/user-attachments/assets/f06888ad-f87e-44ef-85f9-4aafa78fa25d" />
+
 ## 핵심 요구사항
 
 - 좌↔️우 슬라이드를 통한 카테고리 간 이동이 가능해야 한다.

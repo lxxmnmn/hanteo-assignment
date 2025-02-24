@@ -1,33 +1,49 @@
-interface Thumbnail {
+import { PRIVACY_STATUS } from '~/constants';
+
+interface YoutubeContentId {
+  kind: string;
+  videoId: string;
+}
+
+interface YoutubeThumbnail {
   url: string;
   width: number;
   height: number;
 }
 
-interface ContentSnippet {
+interface PlaylistSnippet {
   publishedAt: string;
   channelId: string;
   title: string;
   description: string;
-  thumbnails: { default: Thumbnail; medium: Thumbnail; high: Thumbnail };
+  thumbnails: {
+    default: YoutubeThumbnail;
+    medium: YoutubeThumbnail;
+    high: YoutubeThumbnail;
+    standard: YoutubeThumbnail;
+    maxres: YoutubeThumbnail;
+  };
   channelTitle: string;
-  liveBroadcastContent: string;
-  publishTime: string;
+  playlistId: string;
+  position: number;
+  resourceId: YoutubeContentId;
+  videoOwnerChannelTitle: string;
+  videoOwnerChannelId: string;
 }
 
-interface Content {
+export interface PlaylistItem {
   kind: string;
   etag: string;
-  id: { kind: string; videoId: string };
-  snippet: ContentSnippet;
+  id: YoutubeContentId;
+  snippet: PlaylistSnippet;
+  status: { privacyStatus: (typeof PRIVACY_STATUS)[keyof typeof PRIVACY_STATUS] };
 }
 
-export interface YoutubeContentsType {
+export interface YoutubePlaylistType {
   kind: string;
   etag: string;
   nextPageToken: string;
   prevPageToken?: string;
-  regionCode: string;
   pageInfo: { totalResults: number; resultsPerPage: number };
-  items: Content[];
+  items: PlaylistItem[];
 }

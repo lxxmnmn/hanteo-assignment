@@ -1,4 +1,4 @@
 export const ENDPOINTS = {
   getMainBanners: '/data/banners.json',
-  getYoutubeContents: '/youtube/v3/search',
+  getYoutubePlaylist: '/youtube/v3/playlistItems',
 } as const;

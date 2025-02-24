@@ -12,3 +12,8 @@ export const YOUTUBE_ORDER = {
   VIDEO_COUNT: 'videoCount',
   VIEW_COUNT: 'viewCount',
 } as const;
+
+export const PRIVACY_STATUS = {
+  PUBLIC: 'public',
+  PRIVATE: 'private',
+} as const;

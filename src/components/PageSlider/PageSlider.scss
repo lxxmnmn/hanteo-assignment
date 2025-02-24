@@ -1,9 +1,10 @@
 @use '/src/styles' as *;
 
 .page {
-  overflow: hidden;
-  width: 100vw;
-  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-width: 100vw;
+  max-height: 100vh;
 
   &__container {
     display: flex;

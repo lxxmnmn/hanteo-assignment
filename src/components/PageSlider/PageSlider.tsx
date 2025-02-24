@@ -22,11 +22,9 @@ const pages: PageType[] = CATEGORY.map((item, index) => ({
 
 const PageSlider = () => {
   const navigate = useNavigate();
-  const location = useLocation();
+  const { pathname } = useLocation();
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
-  const [activeIndex, setActiveIndex] = useState(
-    pages.findIndex((item) => item.path === location.pathname)
-  );
+  const [activeIndex, setActiveIndex] = useState(pages.findIndex((item) => item.path === pathname));
 
   const selectCategory = useCallback(() => {
     if (!emblaApi) return;
@@ -42,14 +40,16 @@ const PageSlider = () => {
   }, [emblaApi, activeIndex, selectCategory]);
 
   useEffect(() => {
-    setActiveIndex(pages.findIndex((item) => item.path === location.pathname));
-  }, [location.pathname]);
+    setActiveIndex(pages.findIndex((item) => item.path === pathname));
+  }, [pathname]);
 
   return (
     <div className="page" ref={emblaRef}>
       <div className="page__container">
         {pages.map((page) => (
-          <div className="page__slide">{page.component}</div>
+          <div key={page.path} className="page__slide">
+            {page.component}
+          </div>
         ))}
       </div>
     </div>

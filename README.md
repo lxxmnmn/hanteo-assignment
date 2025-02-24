@@ -1,50 +1,58 @@
-# React + TypeScript + Vite
+# 이민정 한터글로벌 프론트엔드 개발 과제
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 핵심 요구사항
 
-Currently, two official plugins are available:
+- 좌↔️우 슬라이드를 통한 카테고리 간 이동이 가능해야 한다.
+- 카테고리에 속한 콘텐츠는 리스트형 뷰로 구성되고, 무한 스크롤이 가능한 형태이다.
+- 카테고리 간 이동은 상단의 탭 메뉴 클릭과, 좌↔️우 슬라이드 터치를 통해서만 가능하다.
+- 중단의 배너 영역은 슬라이드형이며, 최소 3개의 배너로 구성하고 무한루프 동작 및 외부 링크 이동이 가능해야 한다.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 개발 환경
 
-## Expanding the ESLint configuration
+- Node.js 버전 : `v20.3.0`
+- 번들러 : Vite
+- 프로그래밍 언어 : TypeScript
+- 패키지 관리자 : pnpm
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 주요 기술 스택
 
-- Configure the top-level `parserOptions` property like this:
+- Vite : `^6.1.0`
+- TypeScript : `~5.7.2`
+- React : `19.0.0`
+- React Router DOM : `^7.2.0`
+- Axios : `^1.7.9`
+- TanStack React Query : `^5.66.7`
+- Zustand : `^5.0.3`
+- Sass : `^1.85.0`
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 프로젝트 설계 고려사항
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- **React 기반 컴포넌트**
+  - 코드 재사용성과 가독성을 높이기 위해 `React`를 사용했습니다.
+- **스타일링**
+  - 가독성을 높이고 스타일 변수를 효율적으로 관리하기 위해 `Sass(SCSS)`를 사용했습니다.
+- **상태 관리**
+  - 비동기 데이터 처리와 서버 상태 관리를 위해 `Tanstack React Query`를 사용했습니다.
+  - UI 상태 및 에러 상태 관리를 위해 `Zustand`를 사용했습니다.
+- **코드 품질 관리**
+  - 코드 품질과 스타일의 일관성을 유지하기 위해 `ESLint`와 `Prettier`를 사용했습니다.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## 코드 실행 방법
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. **Node.js**(`v20.3.0`)와 **pnpm** 설치 여부 확인
+
+2. `.env` 파일을 루트 경로에 위치
+
+3. 의존성 설치
+
+   ```bash
+   pnpm install
+   ```
+
+4. 개발 서버 실행
+
+   ```bash
+   pnpm run dev
+   ```
+
+5. 브라우저에서 `http://localhost:5173`으로 접속

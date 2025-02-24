@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useLayoutEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useQueryErrorResetBoundary } from '@tanstack/react-query';
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
 import { CATEGORY } from '~/constants';
@@ -9,6 +10,16 @@ import { ErrorFallback } from '~pages/ErrorFallback';
 import { NotFound } from '~pages/NotFound';
 
 import './App.scss';
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 
 const App = () => {
   const { reset } = useQueryErrorResetBoundary();
@@ -21,6 +32,7 @@ const App = () => {
       )}
     >
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<PageSlider />} />

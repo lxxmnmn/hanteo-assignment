@@ -14,7 +14,14 @@ interface PageType {
   component: JSX.Element;
 }
 
-const components: JSX.Element[] = [<Chart />, <div>whook</div>, <Event />];
+const components: JSX.Element[] = [
+  <Chart />,
+  <div>Whook</div>,
+  <Event />,
+  <div>뉴스</div>,
+  <div>스토어</div>,
+  <div>충전소</div>,
+];
 const pages: PageType[] = CATEGORY.map((item, index) => ({
   ...item,
   component: components[index],
